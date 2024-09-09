@@ -1,0 +1,12 @@
+.prod-images{
+    transform-origin: center center;
+    object-fit: cover;
+    transition: ease-in 0.5s;
+    filter: brightness(100%);
+}
+.prod-images:hover{
+    transform: scale(1.5);
+    filter: brightness(130%);
+    cursor: pointer;
+}
+
