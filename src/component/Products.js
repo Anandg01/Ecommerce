@@ -10,10 +10,19 @@ const Products = ({ products }) => {
                     <div className="card-header fw-medium fs-3" style={{ textAlign: 'center' }}>
                         {product.title}
                     </div>
-                    <img src={product.imageUrl}
-                        className={`card-img-top ${classes['prod-images']}`} alt={product.title} />
-                    <div className="card-body">
+                    <div className="overflow-hidden">
+                        <img src={product.imageUrl}
+                            className={`card-img-top ${classes['prod-images']}`}
+                            alt={product.title} />
+                    </div>
+                    <span class="border-top border-dark-subtle"></span>
+                    <div className="align-items-center d-flex mt-3">
                         <p className="card-text">${product.price}</p>
+                        <button
+                            className="btn btn-primary ms-auto m-2"
+                        >
+                            ADD TO CART
+                        </button>
                     </div>
                 </div>
             })}

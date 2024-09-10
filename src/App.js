@@ -2,6 +2,7 @@ import React from "react"
 import Header from "./component/Header";
 import Products from "./component/Products";
 import Footer from "./component/Footer";
+import './component.css'
 const productsArr = [
 
   {
