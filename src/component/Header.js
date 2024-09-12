@@ -1,8 +1,9 @@
-import React ,{useContext}from "react";
+import React, { useContext } from "react";
+import { NavLink } from 'react-router-dom'
 import CartContext from "../store/CartContext";
 
 const Header = ({ showCart }) => {
-    const cartCtx=useContext(CartContext);
+    const cartCtx = useContext(CartContext);
     console.log(cartCtx)
     return <>
         <header>
@@ -13,6 +14,9 @@ const Header = ({ showCart }) => {
                     <li className="nav-item ms-1">Home</li>
                     <li className="nav-item ms-1">Home</li>
                 </ul>
+                <NavLink to='/about'
+                    className={'link-underline text-light'}
+                >ABOUT</NavLink>
 
                 <div className="ml-auot text-light">
                     <button type="button"
@@ -20,7 +24,7 @@ const Header = ({ showCart }) => {
                         className="btn btn-danger position-relative">
                         CART
                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                             {cartCtx.totalItme}
+                            {cartCtx.totalItme}
                             <span className="visually-hidden">unread messages</span>
                         </span>
                     </button>
