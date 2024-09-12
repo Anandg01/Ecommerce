@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./products.module.css"
-const Products = ({ products }) => {
+import CartContext from "../store/CartContext";
+
+
+const Products = ({ products,onAddProduct }) => {
+    const cartCtx = useContext(CartContext);
+    console.log(cartCtx.Products)
+
+    const addProductHandler=(product)=>{
+        onAddProduct(product.title);
+        cartCtx.addProduct(product)
+    }
     return <>
         <div className="d-flex flex-wrap justify-content-center">
-            {products.map((product, i) => {
-                return <div key={i}
+            {products.map((product) => {
+                return <div key={product.id}
                     className="card m-3 overflow-hidden"
                     style={{ width: '18rem' }}>
                     <div className="card-header fw-medium fs-3" style={{ textAlign: 'center' }}>
@@ -19,6 +29,7 @@ const Products = ({ products }) => {
                     <div className="align-items-center d-flex mt-3">
                         <p className="card-text">${product.price}</p>
                         <button
+                            onClick={()=>addProductHandler(product)}
                             className="btn btn-primary ms-auto m-2"
                         >
                             ADD TO CART
